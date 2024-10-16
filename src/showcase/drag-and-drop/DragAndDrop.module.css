@@ -1,0 +1,45 @@
+/* src/drag-and-drop/DragAndDrop.module.css */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.dragList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.dragItem {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: grab;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.dragItem:active {
+    cursor: grabbing;
+}
+
+.dragItem:hover {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 600px) {
+    .dragItem {
+        padding: 12px;
+    }
+}
