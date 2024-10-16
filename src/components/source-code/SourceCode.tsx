@@ -1,4 +1,4 @@
-/* src/components/source_code/SourceCode.tsx */
+/* src/components/source-code/SourceCode.tsx */
 import React from 'react';
 import styles from './SourceCode.module.css';
 
