@@ -1,4 +1,4 @@
-/* src/SourceCode.module.css */
+/* src/components/source_code/SourceCode.module.css */
 
 .sourceCode {
     font-family: 'Source Sans Pro', sans-serif;
@@ -9,13 +9,39 @@
     padding: 18px 20px;
     background: rgba(25, 118, 210, 0.24);
     border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
 }
 
 .link {
     font-weight: 450;
     color: #1976d2;
+    word-wrap: break-word; /* Prevent long URLs from breaking layout */
 }
 
 .link:hover {
     color: #1976d2;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .sourceCode {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    .link {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sourceCode {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .link {
+        font-size: 0.9rem;
+    }
 }
