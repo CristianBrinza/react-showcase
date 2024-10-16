@@ -1,0 +1,21 @@
+/* src/SourceCode.module.css */
+
+.sourceCode {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: left;
+    margin-top: 20px;
+    font-weight: 350;
+    font-size: 1rem;
+    padding: 15px 20px;
+    background: rgba(25, 118, 210, 0.24);
+    border-radius: 10px;
+}
+
+.link {
+    font-weight: 450;
+    color: #1976d2;
+}
+
+.link:hover {
+    color: #1976d2;
+}
