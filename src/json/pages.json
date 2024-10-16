@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/tabulation",
+    "name": "Tabulation",
+    "description": "Explore data tables with advanced features.",
+    "component": "Tabulation"
+  },
+  {
+    "path": "/drag-and-drop",
+    "name": "Drag and Drop",
+    "description": "Interact with items using drag-and-drop functionality.",
+    "component": "DragAndDrop"
+  }
+]
