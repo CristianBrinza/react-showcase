@@ -4,12 +4,25 @@
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 h1 {
     text-align: center;
     color: #333;
-    font-family: 'Roboto', sans-serif;
+}
+
+.checkboxContainer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+.checkboxContainer input{
+    margin-top: 4px;
 }
 
 .dragList {
