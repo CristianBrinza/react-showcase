@@ -1,5 +1,6 @@
 /* src/showcase/tabulation/Tabulation.module.css */
 
+/* General container and text styles */
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -22,11 +23,13 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Flexbox for search and sorting */
 .searchSort {
     display: flex;
     align-items: center;
 }
 
+/* Search input styling */
 .searchInput {
     padding: 10px 15px;
     margin-right: 15px;
@@ -43,6 +46,7 @@ h1 {
     box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
 }
 
+/* Sorting dropdown and label */
 .sortBy {
     display: flex;
     align-items: center;
@@ -51,8 +55,10 @@ h1 {
 
 .sortBy label {
     margin-right: 10px;
+    min-width: 60px;
 }
 
+/* Page size dropdown */
 .pageSize {
     display: flex;
     align-items: center;
@@ -77,6 +83,7 @@ h1 {
     box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
 }
 
+/* Table styling */
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -96,7 +103,6 @@ h1 {
     background-color: #f9f9f9;
     font-weight: 600;
     cursor: pointer;
-    font-family: 'Source Sans Pro', sans-serif;
     color: #555;
 }
 
@@ -113,12 +119,12 @@ h1 {
     color: #777;
 }
 
+/* Pagination styling */
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .pageButton {
@@ -159,11 +165,12 @@ h1 {
     background-color: #e0e0e0;
 }
 
+/* Button and select elements should have the same height */
 button, select {
     height: 45px;
-
 }
-.sortBy button, .sortBy select{
+
+.sortBy button, .sortBy select {
     padding: 10px 15px;
     margin: 0 5px;
     background-color: white;
@@ -173,4 +180,67 @@ button, select {
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
+    min-width: 60px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Stack elements vertically */
+    .topBar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .searchSort {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .pageSize {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .searchInput, .sortBy select {
+        width: 60%;
+    }
+
+    .table th, .table td {
+        padding: 10px;
+    }
+
+    .table {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .searchInput, .sortBy select, .pageSize select {
+        padding: 8px;
+    }
+
+    .pageButton {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .ellipsis, .activePage {
+        padding: 8px 10px;
+    }
+
+    .table th, .table td {
+        padding: 8px;
+    }
+
+    .pagination {
+        margin-top: 15px;
+    }
 }

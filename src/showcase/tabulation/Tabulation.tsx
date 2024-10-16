@@ -89,7 +89,9 @@ const Tabulation: React.FC = () => {
 
     return (
         <div className={styles.container}>
+
             <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/tabulation"/>
+            
             <h1>Tabulation Showcase</h1>
 
             <div className={styles.topBar}>
