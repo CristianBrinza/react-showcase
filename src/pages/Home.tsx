@@ -6,6 +6,7 @@ const Home: React.FC = () => {
         <div>
             <ul>
                 <li><Link to="/tabulation">Tabulation</Link></li>
+                <li><Link to="/drag-and-drop">Drag and Drop</Link></li>
                 {/* Add more links for other showcases */}
             </ul>
         </div>
