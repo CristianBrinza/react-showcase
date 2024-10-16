@@ -1,26 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6", // Target modern JavaScript, ES6 or above
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "allowJs": true, // Allow JavaScript files
+    "skipLibCheck": true, // Skip checking of all declaration files (*.d.ts)
+    "esModuleInterop": true, // Enable default import for CJS modules
+    "allowSyntheticDefaultImports": true, // Allows default imports from modules with no default export
+    "strict": true, // Enable all strict type-checking options
+    "strictNullChecks": true, // Make `null` and `undefined` distinct types
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in imports
+    "noFallthroughCasesInSwitch": true, // Disallow fallthrough cases in `switch` statements
+    "module": "esnext", // Use ESNext module resolution
+    "moduleResolution": "node", // Use Node.js resolution logic
+    "resolveJsonModule": true, // Allow importing JSON modules
+    "isolatedModules": true, // Treat each file as a separate module
+    "noEmit": true, // Do not emit compiled output files
+    "jsx": "react-jsx", // Use the new JSX transform introduced in React 17+
+    "useDefineForClassFields": true, // Use `define` for class fields, consistent with JavaScript's behavior
+    "baseUrl": ".", // Optional: Allow module resolution from the base directory
+    "paths": {
+      "@components/*": ["src/components/*"], // Optional: Use path aliases
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "include": [
-    "src"
+    "src" // Include all files in the `src` directory
   ]
 }

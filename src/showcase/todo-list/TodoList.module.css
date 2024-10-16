@@ -1,0 +1,97 @@
+/* src/showcase/todo-list/TodoList.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.addButton {
+    background-color: #1976d2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+    background-color: #1976d2;
+}
+
+.form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.saveButton,
+.cancelButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+.saveButton {
+    background-color: #007bff;
+    color: white;
+}
+
+.saveButton:hover {
+    background-color: #0069d9;
+}
+
+.cancelButton {
+    background-color: #6c757d;
+    color: white;
+}
+
+.cancelButton:hover {
+    background-color: #5a6268;
+}
+
+.todoList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

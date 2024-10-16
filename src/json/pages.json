@@ -10,5 +10,11 @@
     "name": "Drag and Drop",
     "description": "Interact with items using drag-and-drop functionality.",
     "component": "DragAndDrop"
+  },
+  {
+    "path": "/todo-list",
+    "name": "Todo List",
+    "description": "Manage tasks with advanced features and local storage.",
+    "component": "TodoList"
   }
 ]
