@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import data from './data.json';
 import styles from './Tabulation.module.css';
-import SourceCode from "../../components/source_code/SourceCode";
+import SourceCode from "../../components/source-code/SourceCode";
 
 interface DataItem {
     id: number;
@@ -91,7 +91,7 @@ const Tabulation: React.FC = () => {
         <div className={styles.container}>
 
             <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/tabulation"/>
-            
+
             <h1>Tabulation Showcase</h1>
 
             <div className={styles.topBar}>
