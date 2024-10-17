@@ -28,5 +28,11 @@
     "name": "File Uploader",
     "description": "Upload and preview files with advanced drag-and-drop functionality.",
     "component": "FileUploader"
+  },
+  {
+    "path": "/tic-tac-toe",
+    "name": "Tic-Tac-Toe",
+    "description": "Play Tic-Tac-Toe against a friend or AI.",
+    "component": "TicTacToe"
   }
 ]

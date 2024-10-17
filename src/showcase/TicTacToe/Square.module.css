@@ -1,0 +1,21 @@
+/* src/showcase/TicTacToe/Square.module.css */
+
+.square {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #999;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.square:hover {
+    background-color: #f1f1f1;
+}
+
+.winningSquare {
+    background-color: rgba(76, 175, 80, 0.5); /* Green with 50% opacity */
+}

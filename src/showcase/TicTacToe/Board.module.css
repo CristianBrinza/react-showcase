@@ -1,0 +1,10 @@
+/* src/showcase/TicTacToe/Board.module.css */
+
+.board {
+    display: flex;
+    flex-direction: column;
+}
+
+.boardRow {
+    display: flex;
+}
