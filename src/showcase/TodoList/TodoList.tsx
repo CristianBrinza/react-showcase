@@ -78,7 +78,7 @@ const TodoList: React.FC = () => {
     return (
         <div className={styles.container}>
 
-            <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/todo-list"/>
+            <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/TodoList"/>
 
             <h1>Todo List</h1>
 
