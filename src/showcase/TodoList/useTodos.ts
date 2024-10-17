@@ -1,4 +1,4 @@
-// src/showcase/todo-list/useTodos.ts
+// src/showcase/TodoList/useTodos.ts
 
 import { useState, useCallback } from 'react';
 import { Todo } from './types';

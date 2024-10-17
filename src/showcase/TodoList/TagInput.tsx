@@ -1,4 +1,4 @@
-// src/showcase/todo-list/TagInput.tsx
+// src/showcase/TodoList/TagInput.tsx
 
 import React, { useState } from 'react';
 import styles from './TagInput.module.css';

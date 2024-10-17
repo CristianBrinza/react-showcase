@@ -1,4 +1,4 @@
-// src/showcase/todo-list/DeadlinePicker.tsx
+// src/showcase/TodoList/DeadlinePicker.tsx
 
 import React from 'react';
 import styles from './DeadlinePicker.module.css';

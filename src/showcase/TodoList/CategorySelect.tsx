@@ -1,4 +1,4 @@
-// src/showcase/todo-list/CategorySelect.tsx
+// src/showcase/TodoList/CategorySelect.tsx
 
 import React from 'react';
 import styles from './CategorySelect.module.css';

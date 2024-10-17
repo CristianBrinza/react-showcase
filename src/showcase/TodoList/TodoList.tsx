@@ -1,4 +1,4 @@
-// src/showcase/todo-list/TodoList.tsx
+// src/showcase/TodoList/TodoList.tsx
 
 import React, { useState, Suspense, lazy, useMemo } from 'react';
 import styles from './TodoList.module.css';

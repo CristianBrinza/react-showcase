@@ -1,4 +1,4 @@
-// src/showcase/todo-list/TodoItem.tsx
+// src/showcase/TodoList/TodoItem.tsx
 
 import React, { useState, memo } from 'react';
 import styles from './TodoItem.module.css';

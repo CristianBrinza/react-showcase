@@ -1,4 +1,4 @@
-// src/showcase/todo-list/types.ts
+// src/showcase/TodoList/types.ts
 
 export interface Todo {
     id: string;

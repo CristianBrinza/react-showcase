@@ -1,4 +1,4 @@
-// src/showcase/todo-list/utils.ts
+// src/showcase/TodoList/utils.ts
 
 const tagColors: { [key: string]: string } = {};
 
