@@ -35,7 +35,7 @@ const RandomQuote: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/random-quote" />
+            <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/RandomQuote" />
 
             <h1 className={styles.title}>Random Quote Generator</h1>
 
