@@ -91,7 +91,11 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
                             className={styles.checkbox}
                         />
                         <h3 className={styles.title}>{todo.title}</h3>
-
+                        {todo.deadline && (
+                            <div className={styles.deadline}>
+                                Due {formatDistanceToNow(new Date(todo.deadline), { addSuffix: true })}
+                            </div>
+                        )}
                         <div className={styles.actions}>
                             <button onClick={toggleFavorite} className={styles.iconButton} aria-label="Favorite">
                                 <StarIcon className={todo.favorite ? styles.favorited : styles.unfavorited} />
@@ -118,11 +122,7 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
                             ))}
                         </div>
                     )}
-                    {todo.deadline && (
-                        <div className={styles.deadline}>
-                            Due {formatDistanceToNow(new Date(todo.deadline), { addSuffix: true })}
-                        </div>
-                    )}
+
                     {/* Progress Bar */}
                     <div className={styles.progressBar}>
                         <div
