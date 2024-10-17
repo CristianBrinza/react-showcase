@@ -1,0 +1,61 @@
+/* src/NotFound.module.css */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.navGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.navCard {
+    display: block;
+    width: 270px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.navCard:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.navCard h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.navCard p {
+    font-size: 1em;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .navCard {
+        width: 100%;
+    }
+}
