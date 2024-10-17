@@ -4,6 +4,7 @@ import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import pagesData from './json/pages.json';
+import NotFound from "./pages/NotFound/NotFound";
 
 interface Page {
     path: string;
@@ -34,6 +35,7 @@ function App() {
                 {pages.map((page) => (
                     <Route key={page.path} path={page.path} element={getComponent(page.component)} />
                 ))}
+                <Route  path="*" element={<NotFound />}/>
             </Routes>
         </Router>
     );
