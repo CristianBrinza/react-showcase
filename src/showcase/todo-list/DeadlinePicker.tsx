@@ -11,7 +11,7 @@ interface DeadlinePickerProps {
 const DeadlinePicker: React.FC<DeadlinePickerProps> = ({ deadline, onChange }) => {
     return (
         <div className={styles.deadlinePicker}>
-            <label htmlFor="deadline">Deadline:</label>
+            <label htmlFor="deadline">Deadline:  </label>
             <input
                 type="date"
                 id="deadline"

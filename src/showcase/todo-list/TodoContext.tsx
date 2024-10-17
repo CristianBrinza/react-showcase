@@ -3,7 +3,7 @@
 import React, { createContext, useReducer, ReactNode, useEffect } from 'react';
 import { Todo, TodoAction, TodoContextProps } from './types';
 
-const TodoContext = createContext<TodoContextProps | undefined>(undefined);
+export const TodoContext = createContext<TodoContextProps | undefined>(undefined);
 
 const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
     switch (action.type) {
@@ -16,6 +16,10 @@ const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
         case 'TOGGLE_TODO':
             return state.map((todo) =>
                 todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo
+            );
+        case 'TOGGLE_FAVORITE':
+            return state.map((todo) =>
+                todo.id === action.payload ? { ...todo, favorite: !todo.favorite } : todo
             );
         default:
             return state;
@@ -38,7 +42,6 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
 
     return <TodoContext.Provider value={{ todos, dispatch }}>{children}</TodoContext.Provider>;
 };
-
 
 export const useTodoContext = (): TodoContextProps => {
     const context = React.useContext(TodoContext);

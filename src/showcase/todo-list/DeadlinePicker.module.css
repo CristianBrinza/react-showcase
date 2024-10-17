@@ -1,16 +1,16 @@
-/* src/showcase/todo-list/DeadlinePicker.module.css */
+/* src/showcase/todo-list/CategorySelect.module.css */
 
-.deadlinePicker {
+.categorySelect {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.deadlinePicker label {
+.categorySelect label {
     margin-right: 10px;
 }
 
-.input {
+.select {
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 8px;

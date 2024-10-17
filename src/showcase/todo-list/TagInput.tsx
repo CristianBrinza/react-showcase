@@ -12,14 +12,22 @@ const TagInput: React.FC<TagInputProps> = ({ tags, onChange }) => {
     const [inputValue, setInputValue] = useState('');
 
     const addTag = () => {
-        if (inputValue.trim() && !tags.includes(inputValue.trim())) {
-            onChange([...tags, inputValue.trim()]);
+        const newTag = inputValue.trim();
+        if (newTag && !tags.includes(newTag)) {
+            onChange([...tags, newTag]);
             setInputValue('');
         }
     };
 
     const removeTag = (tagToRemove: string) => {
         onChange(tags.filter((tag) => tag !== tagToRemove));
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ',') {
+            e.preventDefault();
+            addTag();
+        }
     };
 
     return (
@@ -38,7 +46,7 @@ const TagInput: React.FC<TagInputProps> = ({ tags, onChange }) => {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && addTag()}
+                onKeyDown={handleKeyDown}
                 placeholder="Add a tag"
                 className={styles.input}
             />

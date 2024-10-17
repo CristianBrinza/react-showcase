@@ -30,30 +30,18 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
         prepareTodo,
     } = useTodoForm(todo);
 
-    /**
-     * Toggles the completion status of the todo.
-     */
     const toggleComplete = () => {
         dispatch({ type: 'TOGGLE_TODO', payload: todo.id });
     };
 
-    /**
-     * Deletes the todo.
-     */
     const deleteTodo = () => {
         dispatch({ type: 'DELETE_TODO', payload: todo.id });
     };
 
-    /**
-     * Toggles the favorite status of the todo.
-     */
     const toggleFavorite = () => {
         dispatch({ type: 'TOGGLE_FAVORITE', payload: todo.id });
     };
 
-    /**
-     * Saves the edited todo.
-     */
     const saveTodo = () => {
         dispatch({ type: 'UPDATE_TODO', payload: prepareTodo() });
         setIsEditing(false);
@@ -103,25 +91,20 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
                             className={styles.checkbox}
                         />
                         <h3 className={styles.title}>{todo.title}</h3>
-                        <p className={styles.description}>{todo.description}</p>
 
                         <div className={styles.actions}>
-                            <button
-                                onClick={toggleFavorite}
-                                className={styles.iconButton}
-                                aria-label="Favorite"
-                            >
-                                <StarIcon className={todo.favorite ? styles.favorited : styles.unfavorited}/>
+                            <button onClick={toggleFavorite} className={styles.iconButton} aria-label="Favorite">
+                                <StarIcon className={todo.favorite ? styles.favorited : styles.unfavorited} />
                             </button>
                             <button onClick={() => setIsEditing(true)} className={styles.iconButton} aria-label="Edit">
-                                <EditIcon/>
+                                <EditIcon />
                             </button>
                             <button onClick={deleteTodo} className={styles.iconButton} aria-label="Delete">
-                                <DeleteIcon/>
+                                <DeleteIcon />
                             </button>
                         </div>
                     </div>
-
+                    <p className={styles.description}>{todo.description}</p>
                     {todo.tags.length > 0 && (
                         <div className={styles.tags}>
                             {todo.tags.map((tag) => (
