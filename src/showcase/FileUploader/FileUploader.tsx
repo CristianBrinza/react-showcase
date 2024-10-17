@@ -148,7 +148,7 @@ const FileUploader: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <SourceCode link="https://github.com/YourGithubUsername/react-showcase/tree/main/src/showcase/FileUploader" />
+            <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/FileUploader" />
 
             <h1>Drag-and-Drop File Uploader with Preview</h1>
 
