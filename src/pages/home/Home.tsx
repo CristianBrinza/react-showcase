@@ -1,4 +1,4 @@
-// src/pages/Home.tsx
+// src/pages/home/Home.tsx
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
