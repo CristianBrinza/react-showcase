@@ -22,5 +22,11 @@
     "name": "Markdown Editor",
     "description": "Write and preview Markdown with advanced features.",
     "component": "MarkdownEditor"
+  },
+  {
+    "path": "/file-uploader",
+    "name": "File Uploader",
+    "description": "Upload and preview files with advanced drag-and-drop functionality.",
+    "component": "FileUploader"
   }
 ]
