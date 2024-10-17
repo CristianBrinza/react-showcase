@@ -12,47 +12,84 @@ h1 {
     color: #333;
 }
 
-.checkboxContainer{
+.checkboxContainer {
     display: flex;
-    width: 100%;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
-
 }
 
-.checkboxContainer input{
+.checkboxContainer input {
     margin-top: 4px;
 }
 
 .dragList {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-width: 600px;
     margin: 0 auto;
 }
 
 .dragItem {
-    padding: 15px;
+    padding: 18px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: grab;
     font-family: 'Roboto', sans-serif;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none; /* Prevent text selection on mobile */
 }
 
 .dragItem:active {
     cursor: grabbing;
+    transform: scale(1.03);
 }
 
 .dragItem:hover {
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
 }
 
-@media (max-width: 600px) {
+.checkboxContainer label {
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .dragItem {
+        padding: 14px;
+        font-size: 0.95em;
+    }
+
+    .checkboxContainer label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
     .dragItem {
         padding: 12px;
+        font-size: 0.9em;
+    }
+
+    .dragList {
+        gap: 12px;
+    }
+
+    .checkboxContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkboxContainer label {
+        font-size: 14px;
+        margin-left: 5px;
     }
 }

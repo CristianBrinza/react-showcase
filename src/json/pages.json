@@ -16,5 +16,11 @@
     "name": "Todo List",
     "description": "Manage tasks with advanced features and local storage.",
     "component": "TodoList"
+  },
+  {
+    "path": "/markdown-editor",
+    "name": "Markdown Editor",
+    "description": "Write and preview Markdown with advanced features.",
+    "component": "MarkdownEditor"
   }
 ]

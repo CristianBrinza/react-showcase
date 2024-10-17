@@ -1,0 +1,14 @@
+/* src/showcase/MarkdownEditor/Editor.module.css */
+
+.editor {
+    height: 100%;
+}
+
+.cm-editor {
+    height: 100%;
+}
+
+.cm-content {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+}

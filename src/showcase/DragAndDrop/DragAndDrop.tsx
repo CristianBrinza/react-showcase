@@ -25,6 +25,8 @@ const DragAndDrop: React.FC = () => {
 
     const handleDragStart = (position: number) => {
         dragItem.current = position;
+        // Disable scrolling when dragging starts
+        document.body.style.overflow = 'hidden';
     };
 
     const handleDragEnter = (position: number) => {
@@ -42,10 +44,33 @@ const DragAndDrop: React.FC = () => {
         setItems(newItems);
         dragItem.current = null;
         dragOverItem.current = null;
+
+        // Enable scrolling again after dragging
+        document.body.style.overflow = 'auto';
     };
 
     const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
+    };
+
+    // Touch events
+    const handleTouchStart = (index: number) => {
+        dragItem.current = index;
+        document.body.style.overflow = 'hidden'; // Disable scrolling on touch start
+    };
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+        e.preventDefault(); // Prevent screen movement
+        const touch = e.touches[0];
+        const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (targetElement?.getAttribute('data-index')) {
+            dragOverItem.current = Number(targetElement.getAttribute('data-index'));
+        }
+    };
+
+    const handleTouchEnd = () => {
+        handleDragEnd();
+        document.body.style.overflow = 'auto'; // Re-enable scrolling on touch end
     };
 
     const toggleBackgroundColor = () => {
@@ -54,20 +79,24 @@ const DragAndDrop: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/drag-and-drop" />
+
+            <SourceCode link="https://github.com/CristianBrinza/react-showcase/tree/main/src/showcase/DragAndDrop" />
 
             <h1>Drag and Drop Showcase</h1>
             <div className={styles.dragList}>
                 {items.map((item, index) => (
                     <div
                         key={item.id}
+                        data-index={index}
                         className={styles.dragItem}
                         draggable
                         onDragStart={() => handleDragStart(index)}
                         onDragEnter={() => handleDragEnter(index)}
                         onDragOver={handleDragOver}
                         onDragEnd={handleDragEnd}
-                        // Conditionally apply the background color if the checkbox is checked
+                        onTouchStart={() => handleTouchStart(index)}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
                         style={{ backgroundColor: useBackgroundColor ? item.color || '#fff' : '#fff' }}
                     >
                         {item.text}

@@ -1,0 +1,27 @@
+/* src/showcase/MarkdownEditor/Preview.module.css */
+
+.preview {
+    padding: 20px;
+    overflow: auto;
+}
+
+.preview h1,
+.preview h2,
+.preview h3 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.preview code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.preview pre {
+    background-color: #2d2d2d;
+    color: #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    overflow: auto;
+}
