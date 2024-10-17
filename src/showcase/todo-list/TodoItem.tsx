@@ -6,6 +6,13 @@ import { Todo } from './types';
 import { useTodoContext } from './TodoContext';
 import { useTodoForm } from './useTodos';
 import { formatDistanceToNow } from 'date-fns';
+import { ReactComponent as StarIcon } from './icons/star.svg';
+import { ReactComponent as EditIcon } from './icons/edit.svg';
+import { ReactComponent as DeleteIcon } from './icons/delete.svg';
+import TagInput from './TagInput';
+import DeadlinePicker from './DeadlinePicker';
+import CategorySelect from './CategorySelect';
+import { getTagColor } from './utils';
 
 interface TodoItemProps {
     todo: Todo;
@@ -14,25 +21,38 @@ interface TodoItemProps {
 const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
     const { dispatch } = useTodoContext();
     const [isEditing, setIsEditing] = useState(false);
-    const { todo: editingTodo, handleChange, handleTagChange, handleDeadlineChange, prepareTodo } =
-        useTodoForm(todo);
+    const {
+        todo: editingTodo,
+        handleChange,
+        handleTagChange,
+        handleDeadlineChange,
+        handleCategoryChange,
+        prepareTodo,
+    } = useTodoForm(todo);
 
     /**
-     * Toggles the completed state of the todo.
+     * Toggles the completion status of the todo.
      */
     const toggleComplete = () => {
         dispatch({ type: 'TOGGLE_TODO', payload: todo.id });
     };
 
     /**
-     * Handles the deletion of a todo.
+     * Deletes the todo.
      */
     const deleteTodo = () => {
         dispatch({ type: 'DELETE_TODO', payload: todo.id });
     };
 
     /**
-     * Handles the submission of edited todo.
+     * Toggles the favorite status of the todo.
+     */
+    const toggleFavorite = () => {
+        dispatch({ type: 'TOGGLE_FAVORITE', payload: todo.id });
+    };
+
+    /**
+     * Saves the edited todo.
      */
     const saveTodo = () => {
         dispatch({ type: 'UPDATE_TODO', payload: prepareTodo() });
@@ -42,7 +62,6 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
     return (
         <div className={`${styles.todoItem} ${todo.completed ? styles.completed : ''}`}>
             {isEditing ? (
-                // Editing mode
                 <div className={styles.editForm}>
                     <input
                         name="title"
@@ -58,7 +77,13 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
                         placeholder="Description"
                         className={styles.textarea}
                     />
-                    {/* Add components for tags and deadline */}
+                    <TagInput tags={editingTodo.tags} onChange={handleTagChange} />
+                    <DeadlinePicker deadline={editingTodo.deadline} onChange={handleDeadlineChange} />
+                    <CategorySelect
+                        category={editingTodo.category}
+                        categories={['Work', 'Personal', 'Urgent']}
+                        onChange={handleCategoryChange}
+                    />
                     <div className={styles.actions}>
                         <button onClick={saveTodo} className={styles.saveButton}>
                             Save
@@ -69,7 +94,6 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
                     </div>
                 </div>
             ) : (
-                // Display mode
                 <div className={styles.displayMode}>
                     <div className={styles.header}>
                         <input
@@ -79,20 +103,33 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
                             className={styles.checkbox}
                         />
                         <h3 className={styles.title}>{todo.title}</h3>
+                        <p className={styles.description}>{todo.description}</p>
+
                         <div className={styles.actions}>
-                            <button onClick={() => setIsEditing(true)} className={styles.editButton}>
-                                ✏️
+                            <button
+                                onClick={toggleFavorite}
+                                className={styles.iconButton}
+                                aria-label="Favorite"
+                            >
+                                <StarIcon className={todo.favorite ? styles.favorited : styles.unfavorited}/>
                             </button>
-                            <button onClick={deleteTodo} className={styles.deleteButton}>
-                                🗑️
+                            <button onClick={() => setIsEditing(true)} className={styles.iconButton} aria-label="Edit">
+                                <EditIcon/>
+                            </button>
+                            <button onClick={deleteTodo} className={styles.iconButton} aria-label="Delete">
+                                <DeleteIcon/>
                             </button>
                         </div>
                     </div>
-                    <p className={styles.description}>{todo.description}</p>
+
                     {todo.tags.length > 0 && (
                         <div className={styles.tags}>
                             {todo.tags.map((tag) => (
-                                <span key={tag} className={styles.tag}>
+                                <span
+                                    key={tag}
+                                    className={styles.tag}
+                                    style={{ backgroundColor: getTagColor(tag) }}
+                                >
                   {tag}
                 </span>
                             ))}
@@ -103,6 +140,13 @@ const TodoItem: React.FC<TodoItemProps> = memo(({ todo }) => {
                             Due {formatDistanceToNow(new Date(todo.deadline), { addSuffix: true })}
                         </div>
                     )}
+                    {/* Progress Bar */}
+                    <div className={styles.progressBar}>
+                        <div
+                            className={styles.progress}
+                            style={{ width: todo.completed ? '100%' : '0%' }}
+                        ></div>
+                    </div>
                 </div>
             )}
         </div>

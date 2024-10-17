@@ -1,19 +1,62 @@
 // src/showcase/todo-list/TodoList.tsx
 
-import React, { useState, Suspense, lazy } from 'react';
+import React, {useState, Suspense, lazy, useMemo} from 'react';
 import styles from './TodoList.module.css';
 import { useTodoContext } from './TodoContext';
 import { useTodoForm } from './useTodos';
 import { TodoProvider } from './TodoContext';
 import LoadingSpinner from './common/LoadingSpinner';
 
+
 const TodoItem = lazy(() => import('./TodoItem'));
 
 const TodoList: React.FC = () => {
     const { todos, dispatch } = useTodoContext();
-    const { todo, handleChange, handleTagChange, handleDeadlineChange, resetForm, prepareTodo } =
+    const { todo, handleChange, resetForm, prepareTodo } =
         useTodoForm();
     const [showForm, setShowForm] = useState(false);
+    const [sortOption, setSortOption] = useState<string>('date');
+    const [filterTag, setFilterTag] = useState<string>('');
+    const [filterCategory, setFilterCategory] = useState<string>('');
+
+
+    const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSortOption(e.target.value);
+    };
+
+    const handleFilterTagChange = (tag: string) => {
+        setFilterTag(tag);
+    };
+
+    const handleFilterCategoryChange = (category: string) => {
+        setFilterCategory(category);
+    };
+
+
+    const filteredTodos = useMemo(() => {
+        let tempTodos = [...todos];
+
+        if (filterTag) {
+            tempTodos = tempTodos.filter((todo) => todo.tags.includes(filterTag));
+        }
+
+        if (filterCategory) {
+            tempTodos = tempTodos.filter((todo) => todo.category === filterCategory);
+        }
+
+        switch (sortOption) {
+            case 'date':
+                tempTodos.sort((a, b) => (a.deadline || '').localeCompare(b.deadline || ''));
+                break;
+            case 'favorite':
+                tempTodos.sort((a, b) => Number(b.favorite) - Number(a.favorite));
+                break;
+            // Add more sorting options as needed
+        }
+
+        return tempTodos;
+    }, [todos, filterTag, filterCategory, sortOption]);
+
 
     /**
      * Handles adding a new todo.

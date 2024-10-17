@@ -1,0 +1,17 @@
+/* src/showcase/todo-list/CategorySelect.module.css */
+
+.categorySelect {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.categorySelect label {
+    margin-right: 10px;
+}
+
+.select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}

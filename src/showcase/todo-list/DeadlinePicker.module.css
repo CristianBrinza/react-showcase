@@ -1,0 +1,17 @@
+/* src/showcase/todo-list/DeadlinePicker.module.css */
+
+.deadlinePicker {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.deadlinePicker label {
+    margin-right: 10px;
+}
+
+.input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}

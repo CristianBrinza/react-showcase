@@ -12,6 +12,14 @@
 .todoItem:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+.favorited {
+    fill: #333; /* Filled star */
+}
+
+.unfavorited {
+    fill: none; /* Empty star */
+    stroke: #333; /* Outline color */
+}
 
 .completed {
     opacity: 0.6;
@@ -57,6 +65,7 @@
 
 .tag {
     background-color: #e0e0e0;
+    color: #fff;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.9em;
@@ -133,4 +142,46 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+.todoItem {
+    background-color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.iconButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.iconButton svg {
+    width: 24px;
+    height: 24px;
+}
+
+.iconButton:hover svg {
+    fill: #333;
+}
+
+
+/* Progress bar */
+.progressBar {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress {
+    background-color: #28a745; /* Green for completed */
+    height: 100%;
+    width: 0%; /* Dynamically set width */
+    transition: width 0.3s ease;
 }
