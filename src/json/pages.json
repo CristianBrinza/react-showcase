@@ -34,5 +34,11 @@
     "name": "Tic-Tac-Toe",
     "description": "Play Tic-Tac-Toe against a friend or AI.",
     "component": "TicTacToe"
+  },
+  {
+    "path": "/random-quote",
+    "name": "Random Quote Generator",
+    "description": "Fetch and display random quotes with ease.",
+    "component": "RandomQuote"
   }
 ]
