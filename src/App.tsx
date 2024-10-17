@@ -1,11 +1,8 @@
 // src/App.tsx
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
-import Tabulation from './showcase/tabulation/Tabulation';
-import DragAndDrop from './showcase/drag-and-drop/DragAndDrop';
-import TodoList from './showcase/todo-list/TodoList';
 import pagesData from './json/pages.json';
 
 interface Page {
@@ -20,17 +17,14 @@ function App() {
         setPages(pagesData);
     }, []);
 
+    // Function to dynamically import components
     const getComponent = (componentName: string) => {
-        switch (componentName) {
-            case 'Tabulation':
-                return <Tabulation />;
-            case 'DragAndDrop':
-                return <DragAndDrop />;
-            case 'TodoList':
-                return <TodoList />;
-            default:
-                return null;
-        }
+        const Component = lazy(() => import(`./showcase/${componentName}/${componentName}`));
+        return (
+            <Suspense fallback={<div>Loading...</div>}>
+                <Component />
+            </Suspense>
+        );
     };
 
     return (
