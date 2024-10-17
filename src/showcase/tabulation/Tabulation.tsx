@@ -1,4 +1,4 @@
-// src/showcase/tabulation/Tabulation.tsx
+// src/showcase/Tabulation/Tabulation.tsx
 
 import React, { useState, useEffect } from 'react';
 import data from './data.json';
